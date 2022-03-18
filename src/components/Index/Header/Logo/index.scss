@@ -1,0 +1,18 @@
+.header-logo-wrapper {
+  height: 100%;
+  // width: 60px;
+  position: relative;
+  float: left;
+  .logo-link {
+    width: 44px;
+    height: 44px;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    display: inline-block;
+    margin: 8px 10px 0 0;
+    background: url(../../../../assets/img/logo.png) no-repeat;
+    background-size: 44px 44px;
+  }
+}
