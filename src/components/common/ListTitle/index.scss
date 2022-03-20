@@ -1,0 +1,16 @@
+.title-wraper {
+  height: 60px;
+  padding: 20px;
+  .name {
+    float: left;
+  }
+  .refresh-btn {
+    float: right;
+    cursor: pointer;
+    background-color: transparent;
+    color: #00b3f7;
+    &:active {
+      color: #026085;
+    }
+  }
+}
