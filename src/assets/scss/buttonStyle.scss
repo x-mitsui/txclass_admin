@@ -1,5 +1,7 @@
 .boot-btn {
-  &.primary {
+  color: #fff;
+
+  &.btn-primary {
     background-color: #337ab7;
     border-color: #2e6da4;
     &:hover {
@@ -7,7 +9,7 @@
       border-color: #204d74;
     }
   }
-  &.success {
+  &.btn-success {
     background-color: #5cb85c;
     border-color: #4cae4c;
     &:hover {
@@ -15,7 +17,7 @@
       border-color: #398439;
     }
   }
-  &.info {
+  &.btn-info {
     background-color: #5bc0de;
     border-color: #46b8da;
     &:hover {
@@ -23,7 +25,7 @@
       border-color: #269abc;
     }
   }
-  &.warning {
+  &.btn-warning {
     background-color: #f0ad4e;
     border-color: #eea236;
     &:hover {
@@ -31,7 +33,7 @@
       border-color: #d58512;
     }
   }
-  &.danger {
+  &.btn-danger {
     background-color: #d9534f;
     border-color: #d43f3a;
     &:hover {
