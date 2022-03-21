@@ -1,37 +1,38 @@
-import axios from "axios";
-import qs from "qs";
+import axios from 'axios'
+import qs from 'qs'
 
 export default class HTTP {
   axiosPost(options) {
     axios({
       url: options.url,
-      method: "post",
+      method: 'post',
       withCredentials: true,
       header: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       // {a:"c"}=>"a=c"
-      data: qs.stringify(options.data),
+      data: qs.stringify(options.data)
     })
       .then((res) => {
-        options.success(res.data);
+        options.success(res.data)
       })
       .catch((err) => {
-        options.error(err);
-      });
+        options.error(err)
+      })
   }
 
   axiosGet(options) {
     axios({
       url: options.url,
-      withCredentials: true,
+      params: options.params,
+      withCredentials: true
       // method: "get",
     })
       .then((res) => {
-        options.success(res.data);
+        options.success(res.data)
       })
       .catch((err) => {
-        options.error(err);
-      });
+        options.error(err)
+      })
   }
 }
