@@ -18,14 +18,19 @@ export default class Course extends Component {
       fieldsData: []
     }
   }
+
   render() {
-    const { title, courseData } = this.state
+    const { title, courseData, fieldsData } = this.state
     return (
       <div className="list-container">
         <ListTitle title={title} onRefreshData={this.onRefreshData.bind(this)} />
         <table className="list-table">
           <TableHead titles={table_title} />
-          <TableBody courseData={courseData} />
+          <TableBody
+            courseData={courseData}
+            fieldsData={fieldsData}
+            updateCourseField={this.updateCourseField.bind(this)}
+          />
         </table>
       </div>
     )
@@ -50,6 +55,28 @@ export default class Course extends Component {
       // 使用data
     } catch (error) {
       console.log('getCourseData error:', error)
+    }
+  }
+  async updateCourseField(courseId, fieldId) {
+    const newCourseData = [...this.state.courseData]
+
+    newCourseData.some((item) => {
+      if (item.cid === courseId) {
+        item.field = fieldId
+        return true
+      }
+      return false
+    })
+
+    this.setState({
+      courseData: newCourseData
+    })
+    // 后台设置
+    const result = await courseService.updateCourseField(courseId, fieldId)
+
+    const { err_code } = result
+    if (err_code === 0) {
+      console.log('修改课程成功')
     }
   }
 }

@@ -3,7 +3,8 @@ import TableSelect from 'components/common/TableSelect'
 import './index.scss'
 export default class TableBody extends Component {
   render() {
-    const { courseData, fieldsData } = this.props
+    const { courseData, fieldsData, updateCourseField } = this.props
+
     return (
       <tbody>
         {courseData.map((item, index) => {
@@ -27,7 +28,17 @@ export default class TableBody extends Component {
               </td>
               <td>{item.studentCount}</td>
               <td>
-                <TableSelect fieldsData={fieldsData} />
+                <TableSelect
+                  cid={item.cid}
+                  fieldsData={fieldsData}
+                  field={item.field}
+                  updateCourseField={updateCourseField}
+                  defaultValue={
+                    item.field === 0
+                      ? '无分类'
+                      : fieldsData.filter((fitem) => fitem.id === item.field)[0].title
+                  }
+                />
               </td>
               <td>
                 <button

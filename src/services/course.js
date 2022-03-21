@@ -16,4 +16,21 @@ export default class CourseService extends HTTP {
       })
     })
   }
+  updateCourseField(cid, field) {
+    return new Promise((resolve, reject) => {
+      this.axiosGet({
+        url: COURSE.UPDATE_COURSE_FIELD,
+        params: {
+          cid,
+          field
+        },
+        success: (data) => {
+          resolve(data)
+        },
+        error(err) {
+          reject(err)
+        }
+      })
+    })
+  }
 }
