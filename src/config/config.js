@@ -7,7 +7,8 @@ const API = {
     LOGOUT_ACTION: BASE_URL + 'admin/logout_action'
   },
   COURSE: {
-    GET_COURSES_DATA: BASE_URL + 'get_courses_data'
+    GET_COURSES_DATA: BASE_URL + 'get_courses_data',
+    UPDATE_COURSE_FIELD: BASE_URL + 'update_course_field'
   }
 }
 
