@@ -35,12 +35,12 @@ export default class TableSelect extends Component {
   render() {
     const { fieldsData, cid, defaultValue } = this.props
 
-    const { selectShow, selectField, selectTitle } = this.state
+    const { selectShow, selectTitle } = this.state
     return (
       <div className="table-select-container">
         <div
           className="value-show"
-          tabindex="0"
+          tabIndex="0"
           outline="0"
           onClick={this.onClickOptionItem.bind(this)}
           onBlur={this.onClickOptionItem.bind(this)}
