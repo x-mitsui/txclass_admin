@@ -1,23 +1,23 @@
-import { Component } from "react";
+import { Component } from 'react'
 
-import LoginService from "services/login";
-import { trimSpace } from "utils/tools";
-import { withNavigation } from "components/Wrapper";
-import "./index.scss";
+import LoginService from 'services/login'
+import { trimSpace } from 'utils/tools'
+import { withNavigation } from 'components/Wrapper'
+import './index.scss'
 
-const loginService = new LoginService();
+const loginService = new LoginService()
 
 class LoginForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      username: "",
-      password: "",
-    };
+      username: '',
+      password: ''
+    }
   }
 
   componentDidMount() {
-    this.loginCheck();
+    this.loginCheck()
   }
 
   render() {
@@ -42,7 +42,7 @@ class LoginForm extends Component {
             placeholder="管理员密码"
             onChange={(e) => this.onInputTyping(e)}
             onKeyUp={(e) => {
-              this.onKeyUp(e);
+              this.onKeyUp(e)
             }}
           />
         </div>
@@ -50,31 +50,31 @@ class LoginForm extends Component {
           <button
             className="boot-btn primary"
             onClick={() => {
-              this.onLoginSubmit();
+              this.onLoginSubmit()
             }}
           >
             登录后台
           </button>
         </div>
       </div>
-    );
+    )
   }
 
   async loginCheck() {
-    const result = await loginService.loginCheck();
+    const result = await loginService.loginCheck()
 
-    const errorCode = result.err_code;
+    const errorCode = result.err_code
 
     // 登录页验证是否处于登录状态
     if (errorCode === 10007) {
-      const { navigate } = this.props;
-      navigate("/");
+      const { navigate } = this.props
+      navigate('/')
     }
   }
 
   onInputTyping(e) {
-    const target = e.target;
-    const id = target.id;
+    const target = e.target
+    const id = target.id
     // if (id === "username") {
     //   this.setState({
     //     username: target.value,
@@ -87,47 +87,47 @@ class LoginForm extends Component {
 
     this.setState(
       {
-        [id]: target.value,
+        [id]: target.value
       },
       () => {
-        console.log("username:" + this.state.username);
-        console.log("password:" + this.state.password);
+        // console.log("username:" + this.state.username);
+        // console.log("password:" + this.state.password);
       }
-    );
+    )
   }
 
   async onLoginSubmit() {
-    const { username, password } = this.state;
+    const { username, password } = this.state
     if (trimSpace(username) <= 0) {
-      alert("用户名长度不正确！");
-      return;
+      alert('用户名长度不正确！')
+      return
     }
     if (trimSpace(password) <= 0) {
-      alert("密码长度不正确！");
-      return;
+      alert('密码长度不正确！')
+      return
     }
 
     try {
       const result = await loginService.loginAction({
         username: trimSpace(username),
-        password: trimSpace(password),
-      });
+        password: trimSpace(password)
+      })
       if (result.err_code !== 0) {
-        alert(`[${result.err_code}]:${result.err_msg}`);
-        return;
+        alert(`[${result.err_code}]:${result.err_msg}`)
+        return
       }
-      alert("登陆成功");
-      const { navigate } = this.props;
-      navigate("/");
+      alert('登陆成功')
+      const { navigate } = this.props
+      navigate('/')
     } catch (error) {
-      alert(error);
+      alert(error)
     }
   }
   async onKeyUp(e) {
     if (e.keyCode === 13) {
-      await this.onLoginSubmit();
+      await this.onLoginSubmit()
     }
   }
 }
 
-export default withNavigation(LoginForm);
+export default withNavigation(LoginForm)
