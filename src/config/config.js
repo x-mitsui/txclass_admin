@@ -19,6 +19,13 @@ const API = {
   COLLECTION: {
     GET_COLLECTION_DATA: BASE_URL + 'get_collections_data'
   },
+  TEACHER: {
+    GET_TEACHERS_DATA: BASE_URL + 'get_teachers_data',
+    UPDATE_TEACHER_STAR: BASE_URL + 'update_teacher_star'
+  },
+  STUDENT: {
+    GET_STUDENTS_DATA: BASE_URL + 'get_students_data'
+  },
   COMMON: {
     UPDATE_ROW_STATUS: BASE_URL + 'update_status'
   }
