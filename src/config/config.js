@@ -16,6 +16,9 @@ const API = {
   SLIDER: {
     GET_SLIDERS_DATA: BASE_URL + 'get_sliders_data'
   },
+  COLLECTION: {
+    GET_COLLECTION_DATA: BASE_URL + 'get_collections_data'
+  },
   COMMON: {
     UPDATE_ROW_STATUS: BASE_URL + 'update_status'
   }
