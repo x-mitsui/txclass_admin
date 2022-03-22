@@ -1,7 +1,7 @@
 import HTTP from 'utils/http'
 import { API } from 'config/config'
 
-const COURSE = API.COURSE
+const { COURSE, COMMON } = API
 export default class CourseService extends HTTP {
   getCourses() {
     return new Promise((resolve, reject) => {
@@ -23,24 +23,6 @@ export default class CourseService extends HTTP {
         params: {
           cid,
           field
-        },
-        success: (data) => {
-          resolve(data)
-        },
-        error(err) {
-          reject(err)
-        }
-      })
-    })
-  }
-
-  updateCourseStatus({ cid, status }) {
-    return new Promise((resolve, reject) => {
-      this.axiosPost({
-        url: COURSE.UPDATE_COURSE_STATUS,
-        data: {
-          cid,
-          status
         },
         success: (data) => {
           resolve(data)

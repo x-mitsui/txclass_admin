@@ -4,11 +4,13 @@ import TableHead from 'components/common/TableHead'
 import TableBody from './TableBody'
 
 import CourseService from 'services/course'
+import CommonService from 'services/common'
 
 import { getDatas } from 'utils/tools'
 import { course_table_title } from 'config/table_config'
 
 const courseService = new CourseService()
+const commonService = new CommonService()
 export default class Course extends Component {
   constructor(props) {
     super(props)
@@ -93,8 +95,9 @@ export default class Course extends Component {
       },
       async () => {
         // 注意这里故意为之，异步回调的原因是setState是异步执行的，无法同步获取改变的值
-        const result = await courseService.updateCourseStatus({
-          cid: this.state.courseData[index].cid,
+        const result = await commonService.updateStatus({
+          category: 'course',
+          id: this.state.courseData[index].cid,
           status: this.state.courseData[index].status
         })
         const { err_code } = result

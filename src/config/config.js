@@ -8,12 +8,16 @@ const API = {
   },
   COURSE: {
     GET_COURSES_DATA: BASE_URL + 'get_courses_data',
-    UPDATE_COURSE_FIELD: BASE_URL + 'update_course_field',
-    UPDATE_COURSE_STATUS: BASE_URL + 'update_course_status'
+    UPDATE_COURSE_FIELD: BASE_URL + 'update_course_field'
   },
   RECOM_COURSE: {
-    GET_COURSES_DATA: BASE_URL + 'get_recom_courses_data',
-    UPDATE_COURSE_STATUS: BASE_URL + 'update_recom_course_status'
+    GET_COURSES_DATA: BASE_URL + 'get_recom_courses_data'
+  },
+  SLIDER: {
+    GET_SLIDERS_DATA: BASE_URL + 'get_sliders_data'
+  },
+  COMMON: {
+    UPDATE_ROW_STATUS: BASE_URL + 'update_status'
   }
 }
 

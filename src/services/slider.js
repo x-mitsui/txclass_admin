@@ -1,12 +1,12 @@
 import HTTP from 'utils/http'
 import { API } from 'config/config'
 
-const { RECOM_COURSE } = API
-export default class CourseService extends HTTP {
-  getRecomCourses() {
+const { SLIDER } = API
+export default class SliderService extends HTTP {
+  getSlidersData() {
     return new Promise((resolve, reject) => {
       this.axiosGet({
-        url: RECOM_COURSE.GET_COURSES_DATA,
+        url: SLIDER.GET_SLIDERS_DATA,
         success: (data) => {
           resolve(data)
         },

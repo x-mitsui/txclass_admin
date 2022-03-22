@@ -18,4 +18,8 @@ const recom_course_table_title = [
   '课程上下架'
 ]
 
-export { course_table_title, recom_course_table_title }
+const slider_table_title = ['轮播图ID', '跳转课程ID', '轮播图图片', '跳转课程名称', '轮播图上下架']
+
+const collection_table_title = ['集合ID', '集合图片', '集合标题', '集合描述', '集合上下架']
+
+export { course_table_title, recom_course_table_title, slider_table_title, collection_table_title }
