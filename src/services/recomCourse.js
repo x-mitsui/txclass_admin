@@ -1,29 +1,12 @@
 import HTTP from 'utils/http'
 import { API } from 'config/config'
 
-const COURSE = API.COURSE
+const RECOM_COURSE = API.RECOM_COURSE
 export default class CourseService extends HTTP {
-  getCourses() {
+  getRecomCourses() {
     return new Promise((resolve, reject) => {
       this.axiosGet({
-        url: COURSE.GET_COURSES_DATA,
-        success: (data) => {
-          resolve(data)
-        },
-        error(err) {
-          reject(err)
-        }
-      })
-    })
-  }
-  updateCourseField(cid, field) {
-    return new Promise((resolve, reject) => {
-      this.axiosGet({
-        url: COURSE.UPDATE_COURSE_FIELD,
-        params: {
-          cid,
-          field
-        },
+        url: RECOM_COURSE.GET_COURSES_DATA,
         success: (data) => {
           resolve(data)
         },
@@ -34,10 +17,10 @@ export default class CourseService extends HTTP {
     })
   }
 
-  updateCourseStatus({ cid, status }) {
+  updateRecomCourseStatus({ cid, status }) {
     return new Promise((resolve, reject) => {
       this.axiosPost({
-        url: COURSE.UPDATE_COURSE_STATUS,
+        url: RECOM_COURSE.UPDATE_COURSE_STATUS,
         data: {
           cid,
           status

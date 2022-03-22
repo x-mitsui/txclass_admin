@@ -1,50 +1,39 @@
 import React, { Component } from 'react'
-import TableSelect from 'components/common/TableSelect'
+
 import './index.scss'
 export default class TableBody extends Component {
   render() {
-    const { courseData, fieldsData, updateCourseField, updateCourseStatus } = this.props
+    const { RecomCourseData, updateRecomCourseStatus } = this.props
 
     return (
       <tbody>
-        {courseData.map((item, index) => {
+        {RecomCourseData.map((item, index) => {
           return (
             <tr key={item.id}>
               <td>{item.cid}</td>
               <td>
                 <a href={item.href} target="_blank" rel="noreferrer">
-                  <img src={`http://tximg.codemongo.com/${item.posterKey}`} alt={item.courseName} />
+                  <img src={`http://tximg.codemongo.com/${item.imgKey}`} alt={item.courseName} />
                 </a>
               </td>
               <td>
                 <a href={item.href} target="_blank" rel="noreferrer" className="courseName">
-                  {item.courseName}
+                  {item.title}
                 </a>
               </td>
+              <td>{item.teacherName}</td>
               <td>
                 <span className={item.price === '0' ? 'free' : 'price'}>
-                  {item.price == '0' ? '免费' : `￥${item.price}`}
+                  {item.price === 0 ? '免费' : `￥${item.price}`}
                 </span>
               </td>
-              <td>{item.studentCount}</td>
-              <td>
-                <TableSelect
-                  cid={item.cid}
-                  fieldsData={fieldsData}
-                  field={item.field}
-                  updateCourseField={updateCourseField}
-                  defaultValue={
-                    item.field === 0
-                      ? '无分类'
-                      : fieldsData.filter((fitem) => fitem.id === item.field)[0].title
-                  }
-                />
-              </td>
+              <td>{item.buyCount}</td>
+
               <td>
                 <button
                   className={['boot-btn', item.status ? 'btn-danger' : 'btn-success'].join(' ')}
                   onClick={() => {
-                    updateCourseStatus(index, item.status)
+                    updateRecomCourseStatus(index, item.status)
                   }}
                 >
                   {item.status ? '下架' : '上架'}

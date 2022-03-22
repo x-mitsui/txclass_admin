@@ -6,7 +6,7 @@ import TableBody from './TableBody'
 import CourseService from 'services/course'
 
 import { getDatas } from 'utils/tools'
-import { table_title } from 'config/table_config'
+import { course_table_title } from 'config/table_config'
 
 const courseService = new CourseService()
 export default class Course extends Component {
@@ -25,9 +25,12 @@ export default class Course extends Component {
       <div className="list-container">
         <ListTitle title={title} onRefreshData={this.onRefreshData.bind(this)} />
         <table className="list-table">
-          <TableHead titles={table_title} />
+          <TableHead titles={course_table_title} />
           <TableBody
             courseData={courseData}
+            updateCourseStatus={(index, status) => {
+              this.updateCourseStatus(index, status)
+            }}
             fieldsData={fieldsData}
             updateCourseField={this.updateCourseField.bind(this)}
           />
@@ -76,7 +79,29 @@ export default class Course extends Component {
 
     const { err_code } = result
     if (err_code === 0) {
-      console.log('修改课程成功')
+      console.log('修改课程分类成功')
     }
+  }
+
+  async updateCourseStatus(index, status) {
+    const copyCourseData = [...this.state.courseData]
+    copyCourseData[index].status = 1 - copyCourseData[index].status
+
+    this.setState(
+      {
+        courseData: copyCourseData
+      },
+      async () => {
+        // 注意这里故意为之，异步回调的原因是setState是异步执行的，无法同步获取改变的值
+        const result = await courseService.updateCourseStatus({
+          cid: this.state.courseData[index].cid,
+          status: this.state.courseData[index].status
+        })
+        const { err_code } = result
+        if (err_code === 0) {
+          console.log('修改课程上下架状态成功')
+        }
+      }
+    )
   }
 }
