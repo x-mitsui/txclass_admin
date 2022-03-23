@@ -11,9 +11,9 @@ export default class TableSelect extends Component {
       selectTitle: this.props.defaultValue
     }
   }
-  onClickOptionItem() {
+  onClickOptionItem(state) {
     this.setState({
-      selectShow: !this.state.selectShow
+      selectShow: state === 'blur' ? false : !this.state.selectShow
     })
   }
   onListOptionClick(cid, id, title) {
@@ -43,7 +43,7 @@ export default class TableSelect extends Component {
           tabIndex="0"
           outline="0"
           onClick={this.onClickOptionItem.bind(this)}
-          onBlur={this.onClickOptionItem.bind(this)}
+          onBlur={this.onClickOptionItem.bind(this, 'blur')}
         >
           <span className="field-value">
             {/* {selectField === 0
