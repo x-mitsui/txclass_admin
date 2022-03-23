@@ -6,11 +6,12 @@ import TableBody from './TableBody'
 import CollectionService from 'services/collection'
 import CommonService from 'services/common'
 
-import { getDatas } from 'utils/tools'
+import { getDatas, confirmText } from 'utils/tools'
 import { collection_table_title } from 'config/table_config'
 
 const collectionService = new CollectionService()
 const commonService = new CommonService()
+const cfmText = confirmText('COLLECTION')
 
 export default class Collection extends Component {
   constructor(props) {
@@ -62,6 +63,10 @@ export default class Collection extends Component {
   }
 
   async updateCollectionStatus(index, status) {
+    const cfm = window.confirm(cfmText(status))
+    if (!cfm) {
+      return
+    }
     const copyCollectionData = [...this.state.CollectionData]
     copyCollectionData[index].status = 1 - copyCollectionData[index].status
 

@@ -10,18 +10,16 @@ export default class TableBody extends Component {
         {CollectionData.map((item, index) => {
           return (
             <tr key={item.id}>
-              <td>{item.cid}</td>
+              <td>{item.id}</td>
               <td>
-                <a href={item.href} target="_blank" rel="noreferrer">
-                  <img
-                    src={`http://tximg.codemongo.com/${item.posterImgKey}`}
-                    alt={item.courseName}
-                    className="poster-pic"
-                  />
-                </a>
+                <img
+                  src={`http://tximg.codemongo.com/${item.posterImgKey}`}
+                  alt={item.courseName}
+                  className="poster-pic"
+                />
               </td>
               <td>
-                <a href={item.href} target="_blank" rel="noreferrer" className="courseName">
+                <a href={item.QQLink} target="_blank" rel="noreferrer" className="courseName">
                   {item.title}
                 </a>
               </td>

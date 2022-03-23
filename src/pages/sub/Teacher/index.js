@@ -6,12 +6,13 @@ import TableBody from './TableBody'
 import TeacherService from 'services/teacher'
 import CommonService from 'services/common'
 
-import { getDatas } from 'utils/tools'
+import { getDatas, confirmText } from 'utils/tools'
 import { teacher_table_title } from 'config/table_config'
 
 const teacherService = new TeacherService()
 const commonService = new CommonService()
-
+const cfmText = confirmText('TEACHER')
+const cfmStarText = confirmText('STAR_TEACHER')
 export default class Teacher extends Component {
   constructor(props) {
     super(props)
@@ -65,6 +66,10 @@ export default class Teacher extends Component {
   }
 
   async updateTeacherStatus(index, status) {
+    const cfm = window.confirm(cfmText(status))
+    if (!cfm) {
+      return
+    }
     const copyTeacherData = [...this.state.TeacherData]
     copyTeacherData[index].status = 1 - copyTeacherData[index].status
 
@@ -90,6 +95,10 @@ export default class Teacher extends Component {
   }
 
   async updateTeacherStar(index, isStar) {
+    const cfm = window.confirm(cfmStarText(isStar))
+    if (!cfm) {
+      return
+    }
     const copyTeacherData = [...this.state.TeacherData]
     copyTeacherData[index].isStar = !copyTeacherData[index].isStar
 

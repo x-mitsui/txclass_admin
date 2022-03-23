@@ -6,12 +6,12 @@ import TableBody from './TableBody'
 import SliderService from 'services/slider'
 import CommonService from 'services/common'
 
-import { getDatas } from 'utils/tools'
+import { getDatas, confirmText } from 'utils/tools'
 import { slider_table_title } from 'config/table_config'
 
 const sliderService = new SliderService()
 const commonService = new CommonService()
-
+const cfmText = confirmText('SLIDER')
 export default class Slider extends Component {
   constructor(props) {
     super(props)
@@ -62,6 +62,10 @@ export default class Slider extends Component {
   }
 
   async updateSliderStatus(index, status) {
+    const cfm = window.confirm(cfmText(status))
+    if (!cfm) {
+      return
+    }
     const copyCourseData = [...this.state.SliderData]
     copyCourseData[index].status = 1 - copyCourseData[index].status
 

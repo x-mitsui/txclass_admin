@@ -6,11 +6,12 @@ import TableBody from './TableBody'
 import StudentService from 'services/student'
 import CommonService from 'services/common'
 
-import { getDatas } from 'utils/tools'
+import { getDatas, confirmText } from 'utils/tools'
 import { student_table_title } from 'config/table_config'
 
 const studentService = new StudentService()
 const commonService = new CommonService()
+const cfmText = confirmText('STUDENT')
 
 export default class Student extends Component {
   constructor(props) {
@@ -65,6 +66,10 @@ export default class Student extends Component {
   }
 
   async updateStudentStatus(index, status) {
+    const cfm = window.confirm(cfmText(status))
+    if (!cfm) {
+      return
+    }
     const copyStudentData = [...this.state.StudentData]
     copyStudentData[index].status = 1 - copyStudentData[index].status
 

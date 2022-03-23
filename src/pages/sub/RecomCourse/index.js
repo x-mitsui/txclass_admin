@@ -6,11 +6,12 @@ import TableBody from './TableBody'
 import RecomCourseService from 'services/recomCourse'
 import CommonService from 'services/common'
 
-import { getDatas } from 'utils/tools'
+import { getDatas, confirmText } from 'utils/tools'
 import { recom_course_table_title } from 'config/table_config'
 
 const recomCourseService = new RecomCourseService()
 const commonService = new CommonService()
+const cfmText = confirmText('RECOM_COURSE')
 
 export default class RecomCourse extends Component {
   constructor(props) {
@@ -62,6 +63,10 @@ export default class RecomCourse extends Component {
   }
 
   async updateRecomCourseStatus(index, status) {
+    const cfm = window.confirm(cfmText(status))
+    if (!cfm) {
+      return
+    }
     const copyCourseData = [...this.state.RecomCourseData]
     copyCourseData[index].status = 1 - copyCourseData[index].status
 
