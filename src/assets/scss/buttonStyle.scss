@@ -8,6 +8,10 @@
       background-color: #286090;
       border-color: #204d74;
     }
+    &:disabled {
+      background-color: #337ab7;
+      border-color: #2e6da4;
+    }
   }
   &.btn-success {
     background-color: #5cb85c;
@@ -15,6 +19,10 @@
     &:hover {
       background-color: #449d44;
       border-color: #398439;
+    }
+    &:disabled {
+      background-color: #5cb85c;
+      border-color: #4cae4c;
     }
   }
   &.btn-info {
@@ -24,6 +32,10 @@
       background-color: #31b0d5;
       border-color: #269abc;
     }
+    &:disabled {
+      background-color: #5bc0de;
+      border-color: #46b8da;
+    }
   }
   &.btn-warning {
     background-color: #f0ad4e;
@@ -32,6 +44,10 @@
       background-color: #ec971f;
       border-color: #d58512;
     }
+    &:disabled {
+      background-color: #f0ad4e;
+      border-color: #eea236;
+    }
   }
   &.btn-danger {
     background-color: #d9534f;
@@ -39,6 +55,10 @@
     &:hover {
       background-color: #c9302c;
       border-color: #ac2925;
+    }
+    &:disabled {
+      background-color: #d9534f;
+      border-color: #d43f3a;
     }
   }
 }
