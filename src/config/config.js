@@ -28,6 +28,9 @@ const API = {
   },
   COMMON: {
     UPDATE_ROW_STATUS: BASE_URL + 'update_status'
+  },
+  CRAWLER: {
+    CRAWL_ACTION: BASE_URL + 'crawler/crawl_action'
   }
 }
 

@@ -34,11 +34,14 @@ const teacher_table_title = [
 ]
 
 const student_table_title = ['学生ID', '学生头像', '学生名称', '学生介绍', '学生课程', '学生上下线']
+
+const crawler_table_title = ['爬虫描述', '爬虫操作']
 export {
   course_table_title,
   recom_course_table_title,
   slider_table_title,
   collection_table_title,
   teacher_table_title,
-  student_table_title
+  student_table_title,
+  crawler_table_title
 }
