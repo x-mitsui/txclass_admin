@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3030/'
+const BASE_URL = 'http://localhost:3002/'
 
 const API = {
   LOGIN: {
