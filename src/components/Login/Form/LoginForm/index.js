@@ -48,7 +48,7 @@ class LoginForm extends Component {
         </div>
         <div className="input-wrapper check">
           <button
-            className="boot-btn primary"
+            className="boot-btn btn-primary"
             onClick={() => {
               this.onLoginSubmit()
             }}
