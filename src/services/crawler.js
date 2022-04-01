@@ -3,11 +3,10 @@ import { API } from 'config/config'
 
 const { CRAWLER } = API
 export default class CrawlService extends HTTP {
-  crawlAction(api) {
+  crawlAction(apiName) {
     return new Promise((resolve, reject) => {
-      this.axiosPost({
-        url: CRAWLER.CRAWL_ACTION,
-        data: { api },
+      this.axiosGet({
+        url: CRAWLER.CRAWL_ACTION + apiName,
         success: (data) => {
           resolve(data)
         },
