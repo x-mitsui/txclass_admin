@@ -29,7 +29,7 @@ function App() {
           <Route element={<Teacher />} path="/teacher"></Route>
           <Route element={<Student />} path="/student"></Route>
           <Route element={<Crawler />} path="/crawler"></Route>
-          <Route element={<ErrorPage />} path="/error"></Route>
+          <Route element={<ErrorPage />} path="*"></Route>
         </Route>
       </Routes>
     </Router>
