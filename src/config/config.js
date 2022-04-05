@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3002/'
+import BASE_URL from './apiConfig'
 
 const API = {
   LOGIN: {
