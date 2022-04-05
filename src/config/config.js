@@ -1,4 +1,4 @@
-import BASE_URL from './apiConfig'
+import { BASE_URL } from './apiConfig'
 
 const API = {
   LOGIN: {
